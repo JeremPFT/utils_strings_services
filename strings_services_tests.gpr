@@ -6,9 +6,9 @@
 with "aws";
 with "aunit";
 
-with "../../shared.gpr";
+with "../common/shared.gpr";
 
-project Tests_Strings_Services is
+project Strings_Services_Tests is
 
   for Create_Missing_Dirs use "True";
 
@@ -21,8 +21,9 @@ project Tests_Strings_Services is
   Excl_Src_Lst := ();
   for Excluded_Source_Files use Excl_Src_Lst;
 
-  for Object_Dir use "./obj";
-  for Exec_Dir use "./bin";
+  for Object_Dir use Shared.Object_Dir;
+  for Library_Dir use Shared.Library_Dir;
+  for Exec_Dir use Shared.Exec_Dir;
 
   for Main use ("tests_strings_services-run.adb");
 
@@ -30,4 +31,4 @@ project Tests_Strings_Services is
 
   package Builder renames Shared.Builder;
 
-end Tests_Strings_Services;
+end Strings_Services_Tests;
